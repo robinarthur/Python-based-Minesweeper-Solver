@@ -19,6 +19,9 @@ im_pil = winf.ptr()
 im_cv = pv.pil2cv(im_pil)
 img_gray = cv2.cvtColor(im_cv, cv2.COLOR_BGR2GRAY)
 
+while not sz.get_size(img_gray,sz.template_unknow):
+    pass
+
 #获取游戏规模
 game_scale = sz.get_size(img_gray,sz.template_unknow)
 
@@ -32,6 +35,8 @@ time.sleep(0.4)
 #数据初始化
 list_mine=[]
 list_not_mine=[]
+d_mine={}
+d_not_mine={}
 left_click = 0
 right_click = 0
 mine_num = 0
@@ -42,6 +47,7 @@ while win32gui.FindWindow(0,u'游戏失败') == 0 and win32gui.FindWindow(0,u'�
     time.sleep(0.02)
 
     winf.switch()
+
     #重新截图，更新矩阵
     im_pil = winf.ptr()
     time.sleep(0.02)

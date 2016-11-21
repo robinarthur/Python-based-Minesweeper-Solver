@@ -16,7 +16,7 @@ template_7 = cv2.imread('d:\\mw\\template\\7.png',0)
 list_template=[template_unknow,template_know,template_1,template_2,template_3,template_4,template_5,template_6,template_7]
 
 #模板对应矩阵中的数字
-d_template={0:-1 , 1:-3 , 2:2 , 3:3 , 4:4 , 5:5 , 6:6 , 7:7, 8:8}
+dict_template={0:-1 , 1:-3 , 2:2 , 3:3 , 4:4 , 5:5 , 6:6 , 7:7, 8:8}
 
 #模板匹配阈值
 list_threshold=[0.8,0.9,0.85,0.85,0.85,0.85,0.85,0.85,0.8]
@@ -64,8 +64,10 @@ def get_size(image_gray,template):
     #print(f_coordinate)
     if f_coordinate[0] > large_scale['start_x']+square['length']:
         return middle_scale
-    else:
+    elif f_coordinate[0] > large_scale['start_x']-square['length']:
         return large_scale
+    else:
+        return 0
 
 #判断指定区域内模板是否匹配
 def template_fit(roi_gray,template,threshold):
@@ -86,7 +88,7 @@ def update_matrix(img_gray,matrix,game_scale,square,list_template,list_threshold
                 for k in range(len(list_template)):
                     if template_fit(roi,list_template[k],list_threshold[k]) == 1:
                         #print i,j,k
-                        matrix[i][j] = d_template[k]
+                        matrix[i][j] = dict_template[k]
                         break
 
 

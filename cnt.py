@@ -10,60 +10,60 @@ UNKNOW = -1.
 IS_MINE = 1.
 
 #返回某坐标周围元素位置,返回list，为周围元素位置
-def elem_around(matrix,i,j):
-    y_size,x_size = matrix.shape
-    list_elem=[]
-    if i == 0 and j ==0:
-        list_elem.append([i,j+1])
-        list_elem.append([i+1,j])
-        list_elem.append([i+1,j+1])
+def elem_around(matrix, i, j):
+    y_size, x_size = matrix.shape
+    list_elem = []
+    if i == 0 and j == 0:
+        list_elem.append([i, j+1])
+        list_elem.append([i+1, j])
+        list_elem.append([i+1, j+1])
     elif i == 0 and j == y_size - 1:
-        list_elem.append([i,j-1])
-        list_elem.append([i+1,j-1])
-        list_elem.append([i+1,j])
+        list_elem.append([i, j-1])
+        list_elem.append([i+1, j-1])
+        list_elem.append([i+1, j])
     elif i == x_size - 1 and j == 0:
-        list_elem.append([i-1,j])
-        list_elem.append([i-1,j+1])
-        list_elem.append([i,j+1])
+        list_elem.append([i-1, j])
+        list_elem.append([i-1, j+1])
+        list_elem.append([i, j+1])
     elif i == x_size - 1 and j == y_size - 1:
-        list_elem.append([i,j-1])
-        list_elem.append([i-1,j])
-        list_elem.append([i-1,j-1])
+        list_elem.append([i, j-1])
+        list_elem.append([i-1, j])
+        list_elem.append([i-1, j-1])
     elif i == 0:
         for x in range(3):
             for y in range(2):
                 if x == 1 and y == 0:
                     pass
                 else:
-                    list_elem.append([i + y,j -1 + x])
+                    list_elem.append([i + y, j -1 + x])
     elif i == x_size - 1:
         for x in range(3):
             for y in range(2):
                 if x == 1 and y == 1:
                     pass
                 else:
-                    list_elem.append([i - 1 + y,j - 1 + x])
+                    list_elem.append([i - 1 + y, j - 1 + x])
     elif j == 0:
         for x in range(2):
             for y in range(3):
                 if x == 0 and y == 1:
                     pass
                 else:
-                    list_elem.append([i - 1 + y ,j + x])
+                    list_elem.append([i - 1 + y, j + x])
     elif j == y_size-1:
         for x in range(2):
             for y in range(3):
                 if x == 1 and y == 1:
                     pass
                 else:
-                    list_elem.append([i - 1 + y,j - 1 + x])
+                    list_elem.append([i - 1 + y, j - 1 + x])
     else:
         for x in range(3):
             for y in range(3):
                 if x == 1 and y == 1:
                     pass
                 else:
-                    list_elem.append([i + x - 1,j + y - 1])
+                    list_elem.append([i + x - 1, j + y - 1])
     return list_elem
 
 #简单排雷方法，根据雷数和周围情况判定是\不是雷,返回新增的确定是雷\不是雷格数
