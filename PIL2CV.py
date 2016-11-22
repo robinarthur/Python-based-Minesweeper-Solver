@@ -9,6 +9,5 @@ def pil2cv(pil_image):
     #print pil_image
     pil_image.convert('RGB')
     cv_image = np.array(pil_image)
-    cv_image = cv_image[:,:,::-1].copy()
+    cv_image = cv_image[:, :, ::-1].copy()
     return cv_image
-
