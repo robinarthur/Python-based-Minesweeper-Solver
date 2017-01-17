@@ -4,15 +4,15 @@ import cv2
 import numpy as np
 
 # 导入模板
-template_unknow = cv2.imread('d:\\mw\\template\\unknow.png', 0)
-template_know = cv2.imread('d:\\mw\\template\\know.png', 0)
-template_1 = cv2.imread('d:\\mw\\template\\1.png', 0)
-template_2 = cv2.imread('d:\\mw\\template\\2.png', 0)
-template_3 = cv2.imread('d:\\mw\\template\\3.png', 0)
-template_4 = cv2.imread('d:\\mw\\template\\4.png', 0)
-template_5 = cv2.imread('d:\\mw\\template\\5.png', 0)
-template_6 = cv2.imread('d:\\mw\\template\\6.png', 0)
-template_7 = cv2.imread('d:\\mw\\template\\7.png', 0)
+template_unknow = cv2.imread('image\unknow.png', 0)
+template_know = cv2.imread('image\\template\\know.png', 0)
+template_1 = cv2.imread('image\\template\\1.png', 0)
+template_2 = cv2.imread('image\\template\\2.png', 0)
+template_3 = cv2.imread('image\\template\\3.png', 0)
+template_4 = cv2.imread('image\\template\\4.png', 0)
+template_5 = cv2.imread('image\\template\\5.png', 0)
+template_6 = cv2.imread('image\\template\\6.png', 0)
+template_7 = cv2.imread('image\\template\\7.png', 0)
 list_template = [template_unknow, template_know, template_1, template_2, template_3, template_4, template_5, template_6,
                  template_7]
 
