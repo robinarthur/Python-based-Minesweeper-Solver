@@ -50,14 +50,14 @@ def random_click(game_scale, square):
 
 
 # 窗口操作
-def switch():
+def switch_window():
     wdname1 = u"扫雷"
     w1hd = win32gui.FindWindow(0, wdname1)
     win32gui.SetForegroundWindow(w1hd)
 
 
 # 模拟键盘操作截图,从剪贴板获取图像并返回
-def ptr():
+def ptr_scr():
     ptr_num = 44
     win32api.keybd_event(ptr_num, 0, 0, 0)
     time.sleep(0.04)

@@ -11,11 +11,11 @@ import win32gui
 # 打开Minesweeper.exe,默认路径 C:\Program Files\Microsoft Games\Minesweeper\Minesweeper.exe
 winf.open_minesweeper()
 
-winf.switch()
+winf.switch_window()
 time.sleep(1)
 
 # 模拟按键截图，将图像从PIL类对象转为OpenCv类对象
-im_pil = winf.ptr()
+im_pil = winf.ptr_scr()
 im_cv = pv.pil2cv(im_pil)
 img_gray = cv2.cvtColor(im_cv, cv2.COLOR_BGR2GRAY)
 
@@ -46,10 +46,10 @@ while win32gui.FindWindow(0, u'游戏失败') == 0 and win32gui.FindWindow(0, u'
 
     time.sleep(0.02)
 
-    winf.switch()
+    winf.switch_window()
 
     # 重新截图，更新矩阵
-    im_pil = winf.ptr()
+    im_pil = winf.ptr_scr()
     time.sleep(0.02)
     im_cv = pv.pil2cv(im_pil)
     img_gray = cv2.cvtColor(im_cv, cv2.COLOR_BGR2GRAY)

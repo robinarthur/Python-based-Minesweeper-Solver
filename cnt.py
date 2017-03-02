@@ -14,57 +14,11 @@ IS_MINE = 1.
 def elem_around(matrix, i, j):
     y_size, x_size = matrix.shape
     list_elem = []
-    if i == 0 and j == 0:
-        list_elem.append([i, j+1])
-        list_elem.append([i+1, j])
-        list_elem.append([i+1, j+1])
-    elif i == 0 and j == y_size - 1:
-        list_elem.append([i, j-1])
-        list_elem.append([i+1, j-1])
-        list_elem.append([i+1, j])
-    elif i == x_size - 1 and j == 0:
-        list_elem.append([i-1, j])
-        list_elem.append([i-1, j+1])
-        list_elem.append([i, j+1])
-    elif i == x_size - 1 and j == y_size - 1:
-        list_elem.append([i, j-1])
-        list_elem.append([i-1, j])
-        list_elem.append([i-1, j-1])
-    elif i == 0:
-        for x in range(3):
-            for y in range(2):
-                if x == 1 and y == 0:
-                    pass
-                else:
-                    list_elem.append([i + y, j - 1 + x])
-    elif i == x_size - 1:
-        for x in range(3):
-            for y in range(2):
-                if x == 1 and y == 1:
-                    pass
-                else:
-                    list_elem.append([i - 1 + y, j - 1 + x])
-    elif j == 0:
-        for x in range(2):
-            for y in range(3):
-                if x == 0 and y == 1:
-                    pass
-                else:
-                    list_elem.append([i - 1 + y, j + x])
-    elif j == y_size-1:
-        for x in range(2):
-            for y in range(3):
-                if x == 1 and y == 1:
-                    pass
-                else:
-                    list_elem.append([i - 1 + y, j - 1 + x])
-    else:
-        for x in range(3):
-            for y in range(3):
-                if x == 1 and y == 1:
-                    pass
-                else:
-                    list_elem.append([i + x - 1, j + y - 1])
+    for k in range(-1, 2):
+        for l in range(-1, 2):
+            if i+k < 0 or i+k >= x_size or j+l < 0 or j+l >= y_size or (k == 0 and l == 0):
+                continue
+            list_elem.append([i+k, j+l])
     return list_elem
 
 
@@ -172,13 +126,6 @@ def flag_middle(matrix, list_mine, list_not_mine):
                 for elem in one:
                     if list_not_mine.count(d[int(elem)]) == 0:
                         list_not_mine.append(d[int(elem)])
-                '''
-                print('i:',i)
-                print('left_reduced:',left_reduced[i])
-                print('right_reduced:',right_reduced[i])
-                print ('not mine:',list_not_mine)
-                print('------------------------------------------------------')
-                '''
 
         elif right_reduced[i] == 1:  # 若某一行解为1，且改行的约化矩阵只存在一个1，则那个1一定是雷
             not_zero = 0
