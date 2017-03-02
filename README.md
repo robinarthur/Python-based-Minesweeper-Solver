@@ -1,12 +1,3 @@
-# MinesWeeperSolver
+# Python-based Minesweeper Solver
 
-python code that solves minesweeper
-
-## Important:
-
-Since the algorithm uses image-processing methods in OpenCV (template matching), it is important to make sure that the following configure is met.
-
-- game version: Minesweeper from Windows 7
-- resolution: 1920*1080
-- display scaling: 150%
-
+Python code that solves the game Minesweeper in Windows 7. This program uses image-processing method in OpenCV(template matching).
